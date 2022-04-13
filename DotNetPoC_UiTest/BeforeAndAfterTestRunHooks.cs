@@ -1,4 +1,5 @@
 using System.Threading;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 using NUnit.Framework;
@@ -19,18 +20,19 @@ namespace DotNetPoC.UiTest
         {
 
             Driver = new ChromeDriver();
-            
+            //Driver.Manage().Window.Maximize();
+
             Host.CreateDefaultBuilder().ConfigureWebHostDefaults(webbuilder =>
             {
                 webbuilder.UseStartup<TestExtendedDotNetPoCStartup>();
-            }).Build().RunAsync(_cancelToken.Token);
+            }).Build().Run();
 
         }
 
         [OneTimeTearDown]
         public static void AfterTestRun()
         {
-            _cancelToken.Cancel();
+           _cancelToken.Cancel();
             Driver.Quit();
         }
 
