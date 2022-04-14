@@ -25,7 +25,7 @@ namespace DotNetPoC.UiTest
             Host.CreateDefaultBuilder().ConfigureWebHostDefaults(webbuilder =>
             {
                 webbuilder.UseStartup<TestExtendedDotNetPoCStartup>();
-            }).Build().Run();
+            }).Build().RunAsync();
 
         }
 

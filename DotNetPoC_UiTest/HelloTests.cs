@@ -15,7 +15,7 @@ namespace DotNetPoC.UiTest
     {
       
         [Test]
-        public void application_title_should_be_title()
+        public void StartApplication()
         {
             using(IWebDriver driver=new ChromeDriver())
             {
